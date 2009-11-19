@@ -9,7 +9,7 @@ use IPC::Run qw/run/;
 sub new {
     my ( $class, %opt ) = @_;
 
-    my $tmpl = Template->new;
+    my $tmpl = Template->new($opt{tt_option}||{});
 
     return bless {
         _template       => $tmpl,
