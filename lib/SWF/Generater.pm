@@ -5,6 +5,7 @@ our $VERSION = '0.01';
 
 use Template;
 use IPC::Run qw/run/;
+use Encode;
 
 sub new {
     my ( $class, %opt ) = @_;
@@ -21,6 +22,7 @@ sub process {
     my ($self, $input, $vars) = @_;
 
     $self->{_template}->process($input, $vars, \my $xml) or die $self->{_template}->error();
+    $xml = encode('utf-8', $xml) if utf8::is_utf8($xml);
 
     my $err;
     run ['swfmill', @{$self->{_swfmill_option}}, qw/xml2swf stdin/], \$xml, \my $swf, \$err or die $err;
