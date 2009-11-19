@@ -20,7 +20,7 @@ sub new {
 sub process {
     my ($self, $input, $vars) = @_;
 
-    $self->{_template}->process($input, $vars, \my $xml) or die $self->{_templat}->err();
+    $self->{_template}->process($input, $vars, \my $xml) or die $self->{_template}->err();
 
     my $err;
     run ['swfmill', @{$self->{_swfmill_option}}, qw/xml2swf stdin/], \$xml, \my $swf, \$err or die $err;
