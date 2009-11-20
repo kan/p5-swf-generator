@@ -35,21 +35,54 @@ __END__
 
 =head1 NAME
 
-SWF::Generater -
+SWF::Generater - swf(adobe flash file) generater for perl5
 
 =head1 SYNOPSIS
 
   use SWF::Generater;
 
+  my $swfgen = SWF::Generater->new;
+  my $swf = $swfgen->process('foo.xml');
+
+  # setting swfmill and tt options
+  my $swfgen = SWF::Generater->new(
+                   swfmill_option => [qw/-e cp932/],
+                   tt_option      => { INCLUDE_PATH => ['/tmp/'] },
+               );
+  my $swf = $swfgen->process('foo.xml');
+
+  # setting vars
+  my $xml = ".....<tags>[% buz %]</tags>";
+  my $swfgen = SWF::Generater->new;
+  my $swf = $swfgen->process(\$xml, { buz => 'bar' });
+
+
 =head1 DESCRIPTION
 
-SWF::Generater is
+SWF::Generater is swf generater for perl5.
+this module use swfmill.
+
+1) make xml
+> swfmill swf2xml foo.swf > foo.xml
+
+2) edit xml template
+> vim foo.xml
+ <tags>xxxxx</tags> => <tags>[% name %]</tags>
+
+3) run SWF::Generater
+
+my $sg = SWF::Generater->new;
+print $sg->process('foo.xml', { name => 'bar' });
+
+# => output swf binary.
 
 =head1 AUTHOR
 
-Default Name E<lt>default {at} example.comE<gt>
+kan.fushihara {at} gmail.com
 
 =head1 SEE ALSO
+
+L<Template>, L<http://swfmill.org/>
 
 =head1 LICENSE
 

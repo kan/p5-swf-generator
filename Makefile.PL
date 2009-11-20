@@ -2,12 +2,17 @@ use inc::Module::Install;
 name 'SWF-Generater';
 all_from 'lib/SWF/Generater.pm';
 
-# requires '';
+requires 'Template';
+requires 'IPC::Run';
 
 tests 't/*.t';
 author_tests 'xt';
 
 build_requires 'Test::More';
+build_requires 'Test::Exception';
+build_requires 'Path::Class';
+build_requires 'Path::Class::Dir';
+build_requires 'Path::Class::File';
 use_test_base;
 auto_include;
 WriteAll;
