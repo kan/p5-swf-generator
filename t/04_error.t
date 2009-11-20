@@ -3,9 +3,9 @@ use Test::More;
 use Test::Exception;
 
 use Path::Class;
-use SWF::Generater;
+use SWF::Generator;
 
-my $swfgen = SWF::Generater->new();
+my $swfgen = SWF::Generator->new();
 
 throws_ok { $swfgen->process('t/err.xml'); } 'Template::Exception', 'no template error';
 

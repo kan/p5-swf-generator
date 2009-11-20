@@ -1,4 +1,4 @@
-package SWF::Generater;
+package SWF::Generator;
 use strict;
 use warnings;
 our $VERSION = '0.01';
@@ -35,17 +35,17 @@ __END__
 
 =head1 NAME
 
-SWF::Generater - swf(adobe flash file) generater for perl5
+SWF::Generator - swf(adobe flash file) generator for perl5
 
 =head1 SYNOPSIS
 
-  use SWF::Generater;
+  use SWF::Generator;
 
-  my $swfgen = SWF::Generater->new;
+  my $swfgen = SWF::Generator->new;
   my $swf = $swfgen->process('foo.xml');
 
   # setting swfmill and tt options
-  my $swfgen = SWF::Generater->new(
+  my $swfgen = SWF::Generator->new(
                    swfmill_option => [qw/-e cp932/],
                    tt_option      => { INCLUDE_PATH => ['/tmp/'] },
                );
@@ -53,13 +53,13 @@ SWF::Generater - swf(adobe flash file) generater for perl5
 
   # setting vars
   my $xml = ".....<tags>[% buz %]</tags>";
-  my $swfgen = SWF::Generater->new;
+  my $swfgen = SWF::Generator->new;
   my $swf = $swfgen->process(\$xml, { buz => 'bar' });
 
 
 =head1 DESCRIPTION
 
-SWF::Generater is swf generater for perl5.
+SWF::Generator is swf generator for perl5.
 this module use swfmill.
 
 1) make xml
@@ -69,9 +69,9 @@ this module use swfmill.
 > vim foo.xml
  <tags>xxxxx</tags> => <tags>[% name %]</tags>
 
-3) run SWF::Generater
+3) run SWF::Generator
 
-my $sg = SWF::Generater->new;
+my $sg = SWF::Generator->new;
 print $sg->process('foo.xml', { name => 'bar' });
 
 # => output swf binary.

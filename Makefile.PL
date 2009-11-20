@@ -1,6 +1,6 @@
 use inc::Module::Install;
-name 'SWF-Generater';
-all_from 'lib/SWF/Generater.pm';
+name 'SWF-Generator';
+all_from 'lib/SWF/Generator.pm';
 
 requires 'Template';
 requires 'IPC::Run';

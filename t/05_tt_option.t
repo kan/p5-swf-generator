@@ -2,9 +2,9 @@ use strict;
 use Test::More;
 
 use Path::Class;
-use SWF::Generater;
+use SWF::Generator;
 
-my $swfgen = SWF::Generater->new(tt_option => {INCLUDE_PATH => ['t']});
+my $swfgen = SWF::Generator->new(tt_option => {INCLUDE_PATH => ['t']});
 
 my $swf = $swfgen->process('test.xml');
 

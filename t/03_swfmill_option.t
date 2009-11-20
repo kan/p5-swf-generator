@@ -3,9 +3,9 @@ use utf8;
 use Test::More;
 
 use Path::Class;
-use SWF::Generater;
+use SWF::Generator;
 
-my $swfgen = SWF::Generater->new(swfmill_option => [qw(-e cp932)]);
+my $swfgen = SWF::Generator->new(swfmill_option => [qw(-e cp932)]);
 
 my $swf = $swfgen->process('t/test3.xml');
 
