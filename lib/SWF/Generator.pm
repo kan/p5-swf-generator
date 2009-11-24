@@ -1,7 +1,7 @@
 package SWF::Generator;
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.011';
 
 use Template;
 use IPC::Run qw/run/;

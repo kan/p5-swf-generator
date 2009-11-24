@@ -2,6 +2,8 @@ use inc::Module::Install;
 name 'SWF-Generator';
 all_from 'lib/SWF/Generator.pm';
 
+requires_external_bin 'swfmill';
+
 requires 'Template';
 requires 'IPC::Run';
 
